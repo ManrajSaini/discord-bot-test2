@@ -15,14 +15,18 @@ client.on("ready", (c) => {
     console.log(`✅ ${c.user.tag} is Online`);
 });
 
-client.on("messageCreate", (message) => {
+client.on("interactionCreate", (interaction) => {
     
-    if(message.author.bot){
+    if(!interaction.isChatInputCommand()){
         return;
     }
 
-    if(message.content === "hello"){
-        message.reply("hello");
+    if(interaction.commandName === "hey"){
+        interaction.reply("hey!");
+    }
+
+    if(interaction.commandName === "ping"){
+        interaction.reply("Pong!");
     }
 });
 
