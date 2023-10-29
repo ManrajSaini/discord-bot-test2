@@ -1,5 +1,5 @@
 require("dotenv").config();
-const {REST, Routes} = require("discord.js");
+const {REST, Routes, ApplicationCommandOptionType} = require("discord.js");
 
 const commands = [
     {
@@ -9,6 +9,70 @@ const commands = [
     {
         name: "ping",
         description: "Pong!"
+    },
+    {
+        name: "add",
+        description: "Add any two numbers",
+        options: [
+            {
+                name: "first-number",
+                description: "First Number",
+                type: ApplicationCommandOptionType.Number,
+                required: true
+            },
+            {
+                name: "second-number",
+                description: "Second Number",
+                type: ApplicationCommandOptionType.Number,
+                required: true
+            }
+        ]
+    },
+    {
+        name: "add-choices",
+        description: "Add two choosen numbers",
+        options: [
+            {
+                name: "first-number",
+                description: "First Number",
+                type: ApplicationCommandOptionType.Number,
+                choices: [
+                    {
+                        name: "one",
+                        value: 1
+                    },
+                    {
+                        name: "two",
+                        value: 2
+                    },
+                    {
+                        name: "three",
+                        value: 3
+                    }
+                ],
+                required: true
+            },
+            {
+                name: "second-number",
+                description: "Second Number",
+                type: ApplicationCommandOptionType.Number,
+                choices: [
+                    {
+                        name: "one",
+                        value: 1
+                    },
+                    {
+                        name: "two",
+                        value: 2
+                    },
+                    {
+                        name: "three",
+                        value: 3
+                    }
+                ],
+                required: true
+            }
+        ]
     }
 ];
 
